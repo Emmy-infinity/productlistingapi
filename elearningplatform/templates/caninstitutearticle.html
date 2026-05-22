@@ -1,0 +1,9 @@
+{% extends 'caninstitute.html'%}
+{% block content %}
+{% for articles in articles %}
+           <h1 style="font: size 30px;; font-family: Times New Roman;"> {{articles.title}} </h1>
+           <hr>
+           
+            <p style="font-size: 20px;font-family: Gill Sans;">{{articles.textdata}} </p>
+         {% endfor %}
+{% endblock %}

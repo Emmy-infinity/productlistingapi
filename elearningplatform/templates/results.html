@@ -1,0 +1,60 @@
+
+{% extends 'caninstitutehome.html' %}
+{% load static %}
+ 
+{% block content %}
+<style type="text/css">
+    .container{
+        background-color: rgb(243, 255, 255);
+    }
+    .cards-columns{
+        font-size: large;
+        
+        font-family: 'Times New Roman';
+    }
+</style>
+ 
+<div class="container ">
+        
+    <div class="card-columns" style="padding: 10px; margin: 20px;">
+        <div class="card" align="centre " style="width: 42rem; border:5px black solid">
+            <img class="card-img-top" src="{%static  'result.jpg' %}" alt="Card image cap">
+            <div class="card-body">
+                <h3 class="card-title">Score: {{score}}</h5>
+ 
+               <h3> <p class="card-text">Percentage: {{percent}}%</p> </h3>
+              <h3>  <p class="card-text">Time Taken: {{time}} Minutes</p> </h3>
+
+               <h3><p class="card-text">Correct answers: {{correct}}</p>  </h3>
+                <h3><p class="card-text">Incorrect answers: {{wrong}}</p> </h3>
+
+               <h3> <p class="card-text">Total questions: {{total}}</p> </h3>
+                <hr >
+                {% for q in users %}
+                <h3>{{q.Question}}</h3>
+                <br>
+                <br>
+              <p>  A:{{q.A}} </p>
+              <p>  B:{{q.B}} </p>
+              <p>  C:{{q.C}} </p>
+              <p>  D:{{q.D}} </p>
+              <br>
+              <br>
+              <hr>
+              <h4>CORRECT ANSWER</h4>
+              <p>{{q.Answer}}</p>
+<br>
+<br>
+<h3>ANSWER EXPLANATION </h3>
+                {{q.Answer_expalanation}}
+                <hr>
+                {% endfor %}
+                <h5>All the best for next quiz!</h5>
+            </div>
+        </div>
+        
+    </div>
+ 
+</div>
+ 
+{% endblock %}

@@ -1,0 +1,132 @@
+{% extends 'caninstitute.html' %}
+ 
+{% block content %}
+{% load static %}
+<style  type="text/css">
+  .container{
+    font-size: 20px;
+    text-emphasis-color: rgb(217, 217, 255) ;
+    font-family: 'Times New Roman';
+    background-color: rgb(245, 244, 255);
+    font-weight: 200;
+  }
+  .form-group{
+    font-weight: bold;
+    margin: 20px;
+    padding: 15px;
+    box-shadow: 0 5px  10px 0 rgba(0,0,00.3),0 7px 21px 0 rgba(0,0,0,0.20);
+    
+  }
+  .form-check {
+    display:flow-root;
+    margin-bottom: 15px;
+  }
+  .button {
+    padding: 15px;
+    border: 2px;
+    color: blue;
+  }
+</style>
+
+
+<div class="container "> 
+  
+<h1><hr>PROJECT MANAGEMENT PROFESSIONAL ASSESSMENTS</h1>
+<div align="right " id="displaytimer"><b> <h1>Timer: 0 Minutes </h1></b></div>
+ 
+ <form method='post' action=''>
+    {% csrf_token %}
+    {% for q  in users %}
+    {{x}}
+       
+    <div class="form-group">
+      <label for="question"> {{q.Question}}</label>
+    </div>
+    <br>
+    <div class="form-check">
+        <div class="form-check">
+           <input class="form-check-input" type="radio"  name="{{q.Question}}" id="gridRadios1" value="{{q.A}}" checked>
+            
+            <label class="form-check-label" for="gridRadios1" bg-secondary-subtle >
+                A.{{q.A}}
+            </label>
+            
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="{{q.Question}}" id="gridRadios2" value="{{q.B}}">
+            <label class="form-check-label" for="gridRadios2">
+                B.{{q.B}}
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="{{q.Question}}" id="gridRadios1" value="{{q.C}}">
+            <label class="form-check-label" for="gridRadios1">
+               C. {{q.C}}
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="{{q.Question}}" id="gridRadios2" value="{{q.D}}">
+            <label class="form-check-label" for="gridRadios2">
+               D. {{q.D}}
+            </label>
+        </div>
+        <br>
+        <br>
+        <br>
+        <hr color="back";>
+    </div> 
+       
+    
+    {% endfor %}
+
+  
+
+    <input id='timer' type='hidden' name="timer" value="">
+    <br>
+    <button type="submit" class="btn btn-primary">SUBMIT TEST FOR TEST RESULTS</button>
+  </form>
+      {% if users.has_other_pages %}
+  <ul class="pagination">
+    {% if users.has_previous %}
+      <li><a href="?page={{ users.previous_page_number }}">&laquo;</a></li>
+    {% else %}
+      <li class="disabled"><span>&laquo;</span></li>
+    {% endif %}
+    {% for i in users.paginator.page_range %}
+      {% if users.number == i %}
+        <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+      {% else %}
+        <li><a href="?page={{ i }}">{{ i }}</a></li>
+      {% endif %}
+    {% endfor %}
+    {% if users.has_next %}
+      <li><a href="?page={{ users.next_page_number }}">&raquo;</a></li>
+    {% else %}
+      <li class="disabled"><span>&raquo;</span></li>
+    {% endif %}
+  </ul>
+{% endif %}
+  
+  
+    {% block script %}
+        <script>
+ 
+            /*consol.log('Are You Ready to Take Online Assessment')*/
+            const timer=document.getElementById('displaytimer')
+            console.log(timer.textContent)
+            const inputtag = document.getElementById('timer')
+ 
+            t=0
+            setInterval(()=>{
+                t+=1
+                timer.innerHTML ="<b>Timer: " +t+" Minutes</b>"
+                inputtag.value = t
+            },60000)
+        </script>
+    {% endblock script %}
+ 
+</div>
+
+
+
+{% endblock %}

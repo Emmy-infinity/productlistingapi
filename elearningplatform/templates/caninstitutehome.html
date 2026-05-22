@@ -1,0 +1,108 @@
+{% extends 'caninstitute.html' %}
+
+{% load static%}
+
+{% block content %}
+
+<style type="text/css">
+    * {
+        box-sizing: border-box;
+
+    }
+    .image-container{
+        margin: 0 auto;
+        width: 50%;
+        box-shadow: 0 15px 30px  rgba(0,0,0,0.30),0 11px 8px rgba(0,0,0,0.22);
+        margin-bottom: 20px;
+        transition-duration: 3s;
+    }
+    .image-container:hover{
+        width: 90%;
+        box-shadow: 0 18px 36px rgba(0,0,0,0.30),0 14px 11px rgba(0,0, 0, 0.22);
+
+    }
+    img{
+        width: 100%;
+        height: auto;
+    }
+    .image-description{
+        padding: 0 15px 15px 15px;
+        text-align: center;
+        font-family: Georgia;
+        
+    }
+    .lightbox{
+        display: table;
+        transition-duration: 3s;
+        position: fixed;
+        top: 300%;
+        width: 70%;
+        height: 70%;
+        background: rgba(0,0, 0, 0.7);
+
+    }
+    .lightbox:target{
+        top: 0;
+    }
+    .lightbox-content{
+        display:table-cell;
+        vertical-align: middle;
+        text-align: center;
+    }
+    .close{
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        font-size: 20px;
+        font-weight: 300;
+        text-decoration: none;
+        color: rgb(175, 29, 29);
+    }
+    .lightbox img{
+        max-width: 100%;
+        height: auto;
+    }
+
+</style>
+<h1 style="text-align: center;"> GALLERY</h1>
+<div class="gallery">
+    <div class="image-container"id="container1">
+        <a href="#image1">
+            <img src="{% static 'web2.jpg' %}" alt="">
+        </a>
+        <p class="image-decription">MEET INDUSTRIES EXPERTS</p>
+    </div>
+    <div class="image-container"id="container2">
+        <a href="#image2">
+            <img src="{% static 'emmy.webp'%}" alt=""> -->
+        </a>
+        <p class="image-decription">GET MENTORS</p>
+    </div>
+    <div class="image-container"id="container3">
+        <a href="#image3">
+            <img src="{% static 'emmy2.jpg' %}" alt="">
+        </a>
+        <p class="image-decription">LEVEL UP YOUR SKILLS</p>
+    </div>
+</div>
+<div class="lightbox" id="image1">
+    <a href="#" class="close">CLOSE</a>
+    <div class="lightbox-content">
+        <img src="{% static 'web2.jpg' %}" alt="">
+    </div>
+</div>
+<div class="lightbox" id="image2">
+    <a href="#" class="close">CLOSE</a>
+    <div class="lightbox-content">
+        <img src="{% static 'emmy.webp' %}" alt="">
+    </div>
+</div>
+<div class="lightbox" id="image3">
+    <a href="#" class="close">CLOSE</a>
+    <div class="lightbox-content">
+        <img src="{% static 'emmy2.jpg' %}" alt="">
+    </div>
+</div>
+
+
+{% endblock %}

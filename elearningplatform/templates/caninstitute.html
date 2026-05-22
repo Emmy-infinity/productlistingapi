@@ -1,0 +1,436 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+   <title>
+      {% block title%}
+      {% endblock %}
+   </title>
+   <meta name="viewport"  content="width=device-width,initial-scale=1"7>
+      <head>
+         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+
+...
+
+         <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+ <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+   <style type="text/css">
+      
+
+      .dd {
+         position:relative;
+         display:inline-block;
+      }
+      .dd-btn {
+         padding:15px;
+         text-align:center;
+         background:#0c1624;
+         border:none;
+         width:300px;
+         color:#f8f9f9;
+
+
+      }
+      .dd-content {
+         position: absolute;
+         width:100%;
+         box-shadow: 0 18px 36px rgba(0,0,0,0.30) , 0 14px 11px rgba(0,0,0,0.22) ;
+         height:0px;
+         transition: height 3s;
+         overflow:scroll;
+        }
+        .dd:hover> .dd-content {
+         height:150px;
+
+        }
+        .dd-content > a{
+         display: block;
+         padding: 15pX;
+         background-color: #d8d0d3;
+         text-decoration:none;
+         color: black;
+        }
+   
+   * {
+      box-sizing: border-box;
+    }
+    html, body {
+      margin: 0;
+
+
+
+      padding: 0;
+     /* background-image: url("/static/logo.png");*/
+      
+       background-repeat: no-repeat;
+      background-position:center;
+      background-color: #e0ebf7;
+      
+      background-size:20px;
+      /* keep increasing the value of */
+      /* the background-size property */
+      /* until the background covers */
+      /* the entire page */
+      background-size: 200%;
+    }
+    .nav-bar a {
+      text-decoration: none;
+      color: black;
+      display: block;
+    }
+    .nav-bar > ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+    .nav-bar > ul > li > a {
+      padding: 10px;
+      background: lightgrey;
+    }
+    .nav-bar > ul > li > a:hover {
+      background: #173459;
+      color: #f8f9f9;
+    }
+    .nav-bar .active {
+      background: #173459;
+      color: #f8f9f9;
+    }
+    .nav-bar > ul > li {
+      float: left;
+      width: 25%; /* 100% / 4 (number of li elements) = 25% */
+      text-align: center;
+    }
+  
+      * {
+         box-sizing: border-box;
+      }
+      html, body {
+         margin: 0;
+         padding: 0;
+      
+      }
+      
+      .row::after {
+         content: "";
+         display: block;
+         clear: both;
+
+      }
+      .belowlinks{
+         text-align: center;
+         font-size: 12px;
+
+      }
+      [class*="col-"] {
+         width: 100%;
+         float: left;
+      }
+      @media only screen and (min-width: 480px) {
+         .col-md-1 { width: 8.33333333% }
+         .col-md-2 { width: 16.66666667% }
+         .col-md-3 { width: 25% }
+         .col-md-4 { width: 33.33333333% }
+         .col-md-5 { width: 41.66666667% }
+         .col-md-6 { width: 50% }
+         .col-md-7 { width: 58.33333333% }
+         .col-md-8 { width: 66.66666667% }
+         .col-md-9 { width: 75% }
+         .col-md-10 { width: 83.33333333% }
+         .col-md-11 { width: 91.66666667% }
+         .col-md-12 { width: 100% }
+      }
+      @media only screen and (min-width: 768px) {
+         .col-l-1 { width: 8.33333333% }
+         .col-l-2 { width: 16.66666667% }
+         .col-l-3 { width: 25% }
+         .col-l-4 { width: 33.33333333% }
+         .col-l-5 { width: 41.66666667% }
+         .col-l-6 { width: 50% }
+         .col-l-7 { width: 58.33333333% }
+         .col-l-8 { width: 66.66666667% }
+         .col-l-9 { width: 75% }
+         .col-l-10 { width: 83.33333333% }
+         .col-l-11 { width: 91.66666667% }
+         .col-l-12 { width: 100% }
+      }
+      /* design the layout */
+      header {
+         padding: 15px;
+         color: rgb(232, 240, 245);
+         font-size: 25px;
+         background-color: rgb(7, 124, 150);
+         border-radius: 12px;
+      }
+      .footer  .belowlinks{
+         font-size: 12px;
+         align-items:center;
+         color:white;
+      }
+      .main, .aside {
+         padding: 15px;
+      }
+      
+      .menu { scroll-padding-top: 79;
+         align-content: end;
+         
+      }
+      .main > p {
+         text-align: justify;
+      }
+      .aside > div {
+         background:transparent;
+         border: 5px solid blue;
+         border-radius: 5px;
+         padding: 1px;
+      }
+      
+      
+      .menu {
+         padding: 10px;
+      }
+      .menu > ul {
+         padding: 0;
+         margin: 0;
+         list-style-type: none;
+      }
+      .menu > ul > li {
+         background: #903C56;
+         width: 100%;
+         margin-top: 5px;
+         padding: 10px;
+         font-size: 120%;
+         transition-duration: 1s;
+      }
+      .menu > ul > li:hover {
+         background: #45a4b9;
+      }
+      .menu > ul > li > a {
+         text-decoration: none; /* remove underline */
+         color: #e7e7df;
+      }
+      .img{
+         width: 150px;
+      }
+      .login-register{
+         align-content: last baseline;
+
+      }
+      .breadcrumbs {
+         background: #0076ff;
+         padding: 15px;
+      }
+      .breadcrumbs ul {
+         margin: 0;
+         padding: 0;
+
+      }
+      .breadcrumbs li {
+         display: inline;
+      }
+      .breadcrumbs li::before{
+         content: "|";
+         color: white;
+         margin: 0 8px;
+      }
+      .breadcrumbs li > a {
+         color: #f5f1f1;
+         text-decoration: none;
+         border-bottom: 1px solid white;
+         border: none;
+
+      }
+      .breadcrumbs li:last-child > a {
+         color: white;
+         text-decoration: none;
+         border: none;
+      }
+      .logo >img {
+         width: 150px;
+         align-self: center;
+      }
+      .loginbutton {
+         align-items:end;
+      }
+      .submit-btn :first-child {
+         padding: 0;
+         margin: 2px;
+         border-radius: 15px;
+         height: 30px;
+         width: 350px;
+         font-size: medium;
+
+      }
+      .submit-btn :after {
+         padding: 30;
+         margin: 0px;
+         border-radius: 15px;
+         height: 30px;
+         width: 30px;
+         font-size: medium;
+
+      }
+
+      .fa {
+  padding: 20px;
+  font-size: 30px;
+  width: 50px;
+  text-align: center;
+  text-decoration: none;
+}
+
+/* Add a hover effect if you want */
+.fa:hover {
+  opacity: 0.7;
+}
+
+/* Set a specific color for each brand */
+
+/* Facebook */
+.fa-facebook {
+  background: #3B5998;
+  color: white;
+}
+
+/* Twitter */
+.fa-twitter {
+  background: #55ACEE;
+  color: white;
+}
+      
+   </style>
+
+</head>
+<body>
+   
+   
+     <span> 
+      <header>
+         <a href="#" class="fa fa-facebook"></a>
+<a href="#" class="fa fa-twitter"></a>
+          {% if request.user.is_authenticated %}
+           {{user.username}}
+   {% else%}
+     <p><h4>New here please signup</p></h4>
+   {% endif %}
+         
+       <center> <div class="logo"><img src="{% static 'logo.png' %}" alt="logo" > </div></center>
+      
+      <p><h2> <center>CAN INSTITUTE FOR PROFESSIONAL STUDIES AND EXCELLENCE <br> (CIPSE)</center></h2></p>
+      
+    
+      <div class="submit-btn">
+        
+        <input type="search" value="SEARCH FOR RESOURCES",>
+
+
+      <input type="submit" name="SEARCH" id="submit">
+   
+    </div>
+    
+      
+      
+      </span>
+      </div>
+   {% if request.user.is_authenticated %}
+   <a href="{% url 'elearningplatform:logout'%}">Log Out</a>
+   {% else%}
+     <div class="loginbutton"> <a href="{% url 'elearningplatform:login'%}"><button> Login</button></a> </div> 
+   {% endif %}
+   </header>
+   <div class="breadcrumbs">
+      <ul>
+         <li> <a href="">Admissions requirements</a></li>
+         <li> <a href="{% url 'elearningplatform:register' %}">login-register</a></li>
+         <li> <a href="">Application forms</a></li>
+        <li> <a href="{% url 'elearningplatform:quizz' %}"> Online Assessment  </a> </li>
+         <li> <a href=""> E-Library</a></li>
+          <li> <a href="{% url 'elearningplatform:certificatecourses'%}">Certificate Courses</a></li>
+         <li> <a href="{% url 'elearningplatform:diplomacourses'%}">Diploma Courses</a></li>
+         <li> <a href="{% url 'elearningplatform:undergraduatecourses' %}">Undergraduate Courses</a></li>
+         <li> <a href="{% url 'elearningplatform:postgraduatecourses' %}">Post Graduate Courses</a></li>
+         <li> <a href="{% url 'elearningplatform:professionalcourses' %}" >Professional Courses</a></li>
+         <li> <a href="{% url 'elearningplatform:helpcipse' %}">About CIPSE</a></li>
+         <li> <a href="">Contact Us</a></li>
+         <li> <a href="">Support CIPSE</a></li>
+         <li> <a href="">Terms of Service</a></li>
+         <br>
+         
+      </ul>
+   </div>
+   
+   <div class="row">
+      <div class="col-md-3 col-l-3 menu">
+         <div class="dd">
+            <button class="dd-btn" href="{% url 'elearningplatform:login'%}"><b>HOME</b></button>
+            <div class="dd-content">
+            <a href="#" class="active"> <b></b> <COURSES/a>
+            <a href="{% url 'elearningplatform:quizz' %}"> <b> ONLINE ASSESSMENTS </b>  </a>
+            <a href="{% url 'elearningplatform:Article' %}"> <b>ARTICLES</b>  </a>
+            <a href="quizz/"> <b>DIPLOMA COURSES </b>  </a>
+            <a href="quizz/"> <b>UNDERGRADUATE COURSES </b>  </a>
+            <a href="#">  <b> POSTGRADUATE COURSES  </b> </a></li>
+            <a href="#">  <b> PROFESSIONAL COURSES </b> </a>
+             <a href="#">  <b> VIDEO TUTORIALS </b> </a>
+            </div>
+            
+            
+          
+        </div>
+         
+        
+   
+         
+      </div>
+      <div class="col-md-9 col-l-7 main">
+         
+         
+         <p>
+            {% block content %}
+            
+      {% endblock %}
+   </p>
+         
+      </div>
+      <div class="col-md-12 col-l-2 aside">
+         <div>
+            <center><h1>E-Library</h1></center>
+            
+            <form action="">
+               <input type="search" placeholder="SEARCH FOR Ebooks">
+               <input type="submit" placeholder="SUMBMIT">
+            </form>
+            
+            
+         </div>
+         
+         
+       
+         
+      </div>
+   </div>
+   <div class="footer">
+   <header>
+      <div class="belowlinks">
+      
+     <p><a href="" > </a> </p>
+    <p><a href="#" > Contact us :fcan2050@gmail.com</h2></a></p>
+     
+      
+     <p><a href="#" > Terms of service</h2></a> </p>
+    </p> <a href="#" > caninstituteofprofessionalaccountants,LLC All rights reserved</h2></p>
+   <p>  <a href="#" >Can Institute Of Professional Accountants is aregistered trademark</h2></a></p>
+    <p> <a href="#" >Copyright</h2></a></p>
+
+    <p><a href="#" >Plot 1, Onono Road, Senior Quarter - Gulu</a> </p>
+   <a href="https://mail.google.com/mail/u/1/?view=cm&fs=1&to=userid@gmail.com&tf=1
+">userid@gmail.com</a>
+     </div>
+     
+      
+   </header>
+   </div>
+</body>
+</html>

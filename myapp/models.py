@@ -13,9 +13,14 @@ class Note(models.Model):
 
 
 class UploadedImage(models.Model):
-    image = models.ImageField(upload_to='images/')
+    image = models.ImageField(upload_to='images/' )
     title = models.CharField(max_length=100, blank=True)
     uploaded_at = models.DateTimeField(auto_now_add=True)
+    description=models.CharField(max_length=500,blank=True)
+    
+    
+    class Meta:
+        pass
 
     def __str__(self):
         return self.title or str(self.image)
@@ -28,3 +33,11 @@ class SensorReading(models.Model):
 
     def __str__(self):
         return f"{self.timestamp}: {self.value}"
+
+class StockMarketReading(models.Model):
+    timestamp=models.DateTimeField(auto_created=True)
+    value1=models.FloatField()
+    value2=models.FloatField()
+    
+    
+    

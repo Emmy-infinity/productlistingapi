@@ -22,22 +22,6 @@ class NoteListCreate(generics.ListCreateAPIView):
             print(serializer.errors)  # Add this line for debugging
 
 
-class UploadCreateImage(generics.ListCreateAPIView):
-    serializer_class=UploadedImageSerializer
-    permission_classes=[IsAuthenticated]
-    def get_queryset(self):
-        user=self.request.user
-        
-        return UploadedImage.objects.all()
-    def perform_create(self,serializer):
-        if serializer.is_valid():
-            serializer.save()
-        else: 
-            print("errors")
-
-
-
-
 class NoteDelete(generics.DestroyAPIView):
     queryset = Note.objects.all()
     serializer_class = NoteSerializer
@@ -57,6 +41,32 @@ class CreateUserView(generics.CreateAPIView):
 
 from rest_framework.views import APIView
 from rest_framework.response import Response
+from .models import  StockMarketReading
+
+class ChartDataView2(APIView):
+    def get(self,request):
+        readings=StockMarketReading.objects.all().order_by('timestamp')
+        x = [r.timestamp.strftime('%Y-%m-%d %H:%M:%S') for r in readings]
+        y = [r.value for r in readings]
+        chart_data = {
+            "data": [
+                {
+                    "x": x,
+                    "y": y,
+                    "type": "scatter",
+                    "mode": "lines+markers",
+                    "name": "Sensor",                }
+            ],
+            "layout": {
+                "title": "Sensor Data",
+                "xaxis": {"title": "Time"},
+                "yaxis": {"title": "Value"},
+            }
+        }
+        return Response(chart_data)
+    
+    
+        
 
 class ChartDataView(APIView):
     def get(self, request):

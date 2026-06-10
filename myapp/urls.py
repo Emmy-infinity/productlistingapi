@@ -11,7 +11,13 @@ urlpatterns = [
     path('sensor_reading/' ,views.ChartDataView.as_view()),
     path('upload/', views.ImageUploadView.as_view(), name='image-upload'),
     path('images/', views.ImageListView.as_view(), name='image-list'),
+    
+  
+
 ]
+
+
+
 
 
 

@@ -41,5 +41,5 @@ class SensorReadingSerializer(serializers.ModelSerializer):
 class UploadedImageSerializer(serializers.ModelSerializer):
     class Meta:
         model = UploadedImage
-        fields = ['id', 'image', 'title', 'uploaded_at']
+        fields = ['id', 'image', 'title', 'uploaded_at','description' ]
         read_only_fields = ['id', 'uploaded_at']

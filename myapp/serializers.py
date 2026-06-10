@@ -1,6 +1,6 @@
 from django.contrib.auth.models import User
 from rest_framework import serializers
-from .models import Note,UploadedImage,SensorReading
+from .models import Note, UploadedImage, SensorReading
 
 
 class UserSerializer(serializers.ModelSerializer):
@@ -20,14 +20,6 @@ class NoteSerializer(serializers.ModelSerializer):
         fields = ["id", "title", "content", "created_at", "author"]
         extra_kwargs = {"author": {"read_only": True}}
 
-class UploadedImageSerializer(serializers.ModelSerializer):
-    class Meta:
-        model=UploadedImage
-        fields=['name','image_file']
-        
-        
-        
-
 
 class SensorReadingSerializer(serializers.ModelSerializer):
     x = serializers.DateTimeField(source='timestamp', format='%Y-%m-%d %H:%M:%S')
@@ -36,10 +28,10 @@ class SensorReadingSerializer(serializers.ModelSerializer):
     class Meta:
         model = SensorReading
         fields = ['x', 'y']
-        
+
 
 class UploadedImageSerializer(serializers.ModelSerializer):
     class Meta:
         model = UploadedImage
-        fields = ['id', 'image', 'title', 'uploaded_at','description' ]
+        fields = ['id', 'image', 'title', 'uploaded_at', 'description']
         read_only_fields = ['id', 'uploaded_at']

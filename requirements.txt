@@ -1,25 +1,6 @@
-# Core dependencies
-asgiref==3.8.0
-Django==5.0.2
-djangorestframework==3.14.0
-djangorestframework-simplejwt==5.5.1
 
-# Database
-psycopg2-binary==2.9.9
-dj-database-url==2.1.0
-
-# Utilities
-python-dotenv==1.0.0
-PyJWT==2.13.0
-pytz==2024.1
-sqlparse==0.4.4
-
-# Server & Deployment
-gunicorn==21.2.0
-whitenoise==6.6.0
-
-# CORS
-django-cors-headers==4.3.1
-
-# Image handling (for UploadedImage model)
-
+django>=4.2,<5.0
+gunicorn
+dj-database-url
+whitenoise
+psycopg2-binary

@@ -14,7 +14,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 #import django_heroku
-#import dj_database_url
+import dj_database_url
 
 
 
@@ -100,15 +100,15 @@ WSGI_APPLICATION = 'CANINSTITUTE2.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
+RENDER_DB_URL = "postgres://user:password@://render.com"
 
-DATABASES={
-'default':{
-'ENGINE':'django.db.backends.sqlite3',
-'NAME':os.path.join(BASE_DIR,"db.sqlite3"),
-
+DATABASES = {
+    'default': dj_database_url.config(
+        default=os.environ.get('DATABASE_URL', RENDER_DB_URL),
+        conn_max_age=600
+    )
 }
 
-}
 #db_from_env=dj_database_url.config(conn_max_age=600)
 #DATABASES['default'].update(db_from_env)
 

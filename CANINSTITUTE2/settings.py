@@ -100,7 +100,7 @@ WSGI_APPLICATION = 'CANINSTITUTE2.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
-RENDER_DB_URL = "postgres://user:password@://render.com"
+RENDER_DB_URL = "postgresql://productlistingwebservice_user:D3ZCgPguQ3a14gAGDWxOuEhIGADhH33C@dpg-d8q5p68js32c738rgfrg-a.oregon-postgres.render.com/productlistingwebservice"
 
 DATABASES = {
     'default': dj_database_url.config(

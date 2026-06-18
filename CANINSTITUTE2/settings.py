@@ -103,11 +103,19 @@ WSGI_APPLICATION = 'CANINSTITUTE2.wsgi.application'
 RENDER_DB_URL = "postgresql://productlistingwebservice_user:D3ZCgPguQ3a14gAGDWxOuEhIGADhH33C@dpg-d8q5p68js32c738rgfrg-a.oregon-postgres.render.com/productlistingwebservice"
 
 DATABASES = {
-    'default': dj_database_url.config(
-        default=os.environ.get('DATABASE_URL', RENDER_DB_URL),
-        conn_max_age=600
-    )
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
 }
+
+
+#DATABASES = {
+ #   'default': dj_database_url.config(
+   #     default=os.environ.get('DATABASE_URL', RENDER_DB_URL),
+  #      conn_max_age=600
+ #   )
+#}#
 
 #db_from_env=dj_database_url.config(conn_max_age=600)
 #DATABASES['default'].update(db_from_env)

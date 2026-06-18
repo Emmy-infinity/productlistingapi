@@ -7,6 +7,7 @@ pip install -r requirements.txt
 
 # Convert static files for your React assets / Admin panel
 python manage.py collectstatic --no-input
+python manage.py makemigrations
 
 # Apply database migrations to PostgreSQL
 python manage.py migrate

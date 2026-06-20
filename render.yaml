@@ -3,7 +3,7 @@ services:
     name: django-backend
     env: python
     buildCommand: "./build.sh"
-    startCommand: "gunicorn your_project_name.wsgi:application"
+    startCommand: "python manage.py migrate --noinput && gunicorn your_project_name.wsgi:application"
     envVars:
       - key: PYTHON_VERSION
         value: 3.10.0 # Match your local version
